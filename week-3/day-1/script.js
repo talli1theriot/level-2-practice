@@ -60,6 +60,7 @@ console.log(addTip(10, 2));          // 12
 function orderTotal(price, quantity) {
   return price * quantity;
 }
+
 // TODO: Before you run it, guess what orderTotal(4.5, 3) gives. Then log it.
 console.log(orderTotal(4.5, 3))
 
