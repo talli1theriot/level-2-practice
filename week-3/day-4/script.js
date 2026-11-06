@@ -4,10 +4,14 @@
 
 // TODO first: replace this menu with YOUR truck's menu (keep the same shape).
 const menu = [
-  { name: "Taco", price: 4.5 },
-  { name: "Burrito", price: 9 },
-  { name: "Nachos", price: 6.25 },
-  { name: "Churro", price: 3 },
+  {name: "Curly Fries", price: 4},
+  {name: "Wavy Fries", price: 4},
+  {name: "Waffle Fries", price: 4},
+  {name: "Butter Potater", price: 5.50},
+  {name: "Old Fashioned", price: 6.50},
+  {name: "Fiesta Tater", price: 8.25},
+  {name: "Pizza Potato", price: 8.25},
+  {name: "Cajun Tada", price: 8.25}
 ];
 
 
@@ -18,7 +22,9 @@ for (let i = 0; i < menu.length; i++) {
 }
 
 // TODO: Write a for loop that logs every item's PRICE.
-
+for (let i = 0; i < menu.length; i++) {
+  console.log("for loop:", menu[i].price);
+}
 
 // ---------- Step 2: forEach ----------
 // Same job, shorter to write. forEach hands you each item, one at a time.
@@ -28,7 +34,9 @@ menu.forEach(function (item) {
 });
 
 // TODO: Use forEach to log a sentence for each item, like "Taco costs $4.5".
-
+for(let i = 0; i  < menu.length; i++) {
+  console.log(menu[i].name +" costs $" + menu[i].price);
+}
 
 // ---------- Step 3: Put the menu on the page ----------
 // Example: one item, made safely with createElement + textContent.
