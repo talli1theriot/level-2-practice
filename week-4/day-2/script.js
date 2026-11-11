@@ -9,9 +9,14 @@
 
 // First: replace this menu with YOUR truck's menu (keep the same shape).
 const menu = [
-  { name: "Taco", price: 4.5 },
-  { name: "Burrito", price: 9 },
-  { name: "Nachos", price: 6.25 },
+  {name: "Curly Fries", price: 4},
+  {name: "Wavy Fries", price: 4},
+  {name: "Waffle Fries", price: 4},
+  {name: "Butter Potater", price: 5.50},
+  {name: "Old Fashioned", price: 6.50},
+  {name: "Fiesta Tater", price: 8.25},
+  {name: "Pizza Potato", price: 8.25},
+  {name: "Cajun Tada", price: 8.25}
 ];
 
 // getElementById finds ONE element by its id. Same job as querySelector("#card-area"),
@@ -28,14 +33,18 @@ area.appendChild(card);                        // 4. put it inside #card-area. N
 
 // YOUR TURN: make a second card that says your truck's name.
 // Change: card → card2 (4 places), and the text.
+const card2 = document.createElement("div");
+card2.className = "card p-3";
+card2.textContent = "Potato Tornado";
+area.appendChild(card2);
 
 
 // ---------- Step 2: A card for EVERY item ----------
 // EXAMPLE: the same 4 moves, inside forEach. One card per menu item.
 menu.forEach(function (item) {
   const itemCard = document.createElement("div");
-  itemCard.className = "card p-3";
-  itemCard.textContent = item.name;
+  itemCard.className = "card p-3 bg-light border-primary text-center shadow-sm";
+  itemCard.textContent = item.name + ": $" + item.price;
   area.appendChild(itemCard);
 });
 
