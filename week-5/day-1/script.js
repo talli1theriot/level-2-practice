@@ -13,7 +13,8 @@ const longitude = -91.89928;
 // The same address you sent in your API tool, built from the pieces.
 const url =
   "https://api.open-meteo.com/v1/forecast?latitude=" + latitude +
-  "&longitude=" + longitude + "&temperature_unit=fahrenheit";
+  "&longitude=" + longitude + "&temperature_unit=fahrenheit" +
+  "&current=temperature_2m,wind_speed_10m";
 
 
 // ---------- Step 1: Send the request ----------
@@ -23,19 +24,18 @@ async function getWeather() {
   console.log("Status:", response.status); // 2. same status your API tool showed you (200 = OK)
   const data = await response.json();      // 3. read the body as JSON, wait again
   console.log(data);                       // 4. the same body your API tool showed you
-
+  
   // ---------- Step 2: Dig out one value ----------
   // EXAMPLE: the body is an object. Use dots to walk into it, like in your API tool's body view.
   console.log("Temperature:", data.current.temperature_2m);
 
   // YOUR TURN: log the wind speed. Find its name in the console's object first.
-console.log("Wind Speed: ",data.current.wind_speed_10m);
+  console.log("Wind Speed: ", data.current.wind_speed_10m);
 
   // ---------- Step 3: Put it on the page ----------
   // EXAMPLE: the number, plus its unit (the unit lives in current_units).
   const weather = document.getElementById("weather");
-  weather.textContent = "Temperature: " + data.current.temperature_2m + " " +
-    data.current_units.temperature_2m + " . Wind: " + data.current.wind_speed_10m + data.current_units;
+    weather.textContent = "Temperature: " + data.current.temperature_2m + " " + data.current_units.temperature_2m + ". Wind: " + data.current.wind_speed_10m + " " + data.current_units.wind_speed_10m;
 
   // YOUR TURN: don't copy this one. Change the example above,
   // so the page also shows the wind speed and its unit.
