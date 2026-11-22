@@ -37,10 +37,10 @@ async function loadRecipe() {
   // ---------- Step 1: show a few fields ----------
   // EXAMPLE: a card with the recipe's name. Same 4 moves as Week 4.
   const card = document.createElement("div");
-  card.className = "card p-3";
+  card.className = "card p-3 border-2";
 
   const title = document.createElement("h2");
-  title.className = "h4";
+  title.className = "fs-1 fw-bold bg-danger";
   title.textContent = recipe.name;
   card.appendChild(title);
 
@@ -52,19 +52,36 @@ async function loadRecipe() {
   // Each one: createElement, textContent, card.appendChild.
 
   const cuisine = document.createElement("h2");
-  cuisine.className = "fs-2 h4";
+  cuisine.className = "fs-4 fw-normal bg-success mb-0";
   cuisine.textContent = `Dish: ${recipe.cuisine}`;
   card.appendChild(cuisine);
 
   const ready = document.createElement("h2");
-  ready.classList = "fs-2 h4";
+  ready.className = "fs-4 fw-normal bg-success";
   ready.textContent = `Ready in ${recipe.cookTimeMinutes} minutes.`;
   card.appendChild(ready);
 
+  const recipeIngredients = document.createElement("h2");
+  recipeIngredients.className = "fs-5 bg-warning mb-0";
+  recipeIngredients.textContent = "Recipe Ingredients";
+  card.appendChild(recipeIngredients);
+
+  const list = document.createElement("ul");
+  const ingredients = recipe.ingredients;
+  list.className = "bg-warning";
+  ingredients.forEach(function (ingredient) {
+    const item = document.createElement("li");
+    item.textContent = ingredient;
+    list.appendChild(item);
+  })
+
+  card.appendChild(list);
+
   recipeArea.appendChild(card);
+
 }catch(error) {
   statusText.textContent = "Server not found. Check internet connection.";
-  statusText.classList = "text-danger";
+  statusText.classList = "text-danger fs-4";
 }
 }
 
